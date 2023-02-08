@@ -9,13 +9,11 @@ import web3 from "../public/web3.png";
 import web4 from "../public/web4.png";
 import web5 from "../public/web5.png";
 import web6 from "../public/web6.png";
-import { useTranslation } from "next-i18next";
 
 import { useState } from "react";
 import { Stack, Switch, Typography } from "@mui/material";
 
 export default function Home() {
-  const { t } = useTranslation("common");
   const [darkMode, setDarkMode] = useState(false);
 
   const newTab = (url) => {
