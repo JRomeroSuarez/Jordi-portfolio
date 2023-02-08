@@ -3,20 +3,19 @@ import { BsFillMoonStarsFill } from "react-icons/bs";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import Image from "next/image";
 import jordidev from "../public/jordi-image.png";
-import design from "../public/design.png";
-import code from "../public/code.png";
-import consulting from "../public/consulting.png";
 import web1 from "../public/web1.png";
 import web2 from "../public/web2.png";
 import web3 from "../public/web3.png";
 import web4 from "../public/web4.png";
 import web5 from "../public/web5.png";
 import web6 from "../public/web6.png";
+import { useTranslation } from "next-i18next";
 
 import { useState } from "react";
 import { Stack, Switch, Typography } from "@mui/material";
 
 export default function Home() {
+  const { t } = useTranslation("common");
   const [darkMode, setDarkMode] = useState(false);
 
   const newTab = (url) => {
@@ -121,18 +120,18 @@ export default function Home() {
               </h3>
               <ul>
                 <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Maquetación con la librería MaterialUI con referencia a
-                  diseños en AdobeXD y Figma
+                  Layout with the MaterialUI library with reference to AdobeXD
+                  and Figma designs.
                 </li>
                 <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Desarrollo del flujo completo de aplicaciones para la creación
-                  de estudios médicos y análisis de sus datos
+                  Development of the complete flow of applications for the
+                  creation of medical studies and analysis of their data.
                 </li>
                 <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Mantenimiento de aplicaciones ya publicadas
+                  Maintenance of already published applications.
                 </li>
                 <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Implementación del sistema CI/CD
+                  Implementation of the CI/CD system.
                 </li>
               </ul>
             </div>
@@ -143,15 +142,18 @@ export default function Home() {
               </h3>
               <ul>
                 <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Desarrollo de aplicación web con arquitectura hexagonal para
-                  la gestión y administración de SPDs
+                  Development of a web application with hexagonal architecture
+                  for the management and administration of SPDs.
                 </li>
                 <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Creación de componentes y maquetación con React/MaterialUI
+                  Component creation and layout with React/MaterialUI.
                 </li>
                 <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Desarrollo de funcionalidades de autenticación a través de
-                  aplicaciones de terceros
+                  Development of the complete flow of the application
+                </li>
+                <li className="text-gray-800 py-1 dark:text-gray-400">
+                  Development of authentication functionalities via third party
+                  applications
                 </li>
               </ul>
             </div>
@@ -164,23 +166,25 @@ export default function Home() {
             </h3>
             <ul>
               <li>
-                <p className="text-lg  py-2  text-gray-400 ">
-                  Dominio de HTML, JS, CSS
+                <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400 ">
+                  I have a lot of experience with the React library and I have
+                  worked with it in several projects.
                 </p>
               </li>
               <li>
-                <p className="text-lg  py-2  text-gray-400 ">
-                  Conocimiento de las bases de datos MySQL, MongoDB
+                <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400 ">
+                  I have experience with the MongoDB and MySQL database and I
+                  have worked with it in several projects.
                 </p>
               </li>
               <li>
-                <p className="text-lg  py-2  text-gray-400 ">
-                  Trabajado con frameworks populares de JS como React, NextJS
+                <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400 ">
+                  Worked with popular JS frameworks such as React, NextJS
                 </p>
               </li>
               <li>
-                <p className="text-lg  py-2  text-gray-400 ">
-                  Dominio de las metodologías Agile y SCRUM
+                <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400 ">
+                  Proficient in Agile and SCRUM methodologies
                 </p>
               </li>
             </ul>
