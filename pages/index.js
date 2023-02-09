@@ -1,4 +1,5 @@
 import Head from "next/head";
+import React from "react";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import Image from "next/image";
@@ -9,12 +10,24 @@ import web3 from "../public/web3.png";
 import web4 from "../public/web4.png";
 import web5 from "../public/web5.png";
 import web6 from "../public/web6.png";
-
 import { useState } from "react";
-import { Stack, Switch, Typography } from "@mui/material";
+
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import OppositeContentTimeline from "./components/TimelineBar";
+import WorkCard from "./components/Workcard";
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
+}
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const { t } = useTranslation("common");
 
   const newTab = (url) => {
     window.open(url, "_blank");
@@ -30,7 +43,9 @@ export default function Home() {
       <main className="bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900">
         <section className="min-h-screen">
           <nav className="py-10 mb-12 flex justify-between">
-            <h1 className="text-xl font-burtons dark:text-gray-50">TheJorko</h1>
+            <h1 className="text-xl font-burtons dark:text-gray-50">
+              TheJorko
+            </h1>
             <ul className="flex items-center">
               <li>
                 <BsFillMoonStarsFill
@@ -38,17 +53,22 @@ export default function Home() {
                   className="cursor-pointer text-2xl text-gray-600 dark:text-gray-100"
                 />
               </li>
-              <li className="ml-10">
-                <Stack direction="row" spacing={1} alignItems="center">
-                  <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-100  max-w-lg mx-auto">
-                    En
-                  </p>
-                  <Switch defaultChecked />
-                  <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-100  max-w-lg mx-auto">
-                    Es
-                  </p>
-                </Stack>
-              </li>
+              {/*  <li className="ml-10">
+                <ToggleButtonGroup
+                  value={language}
+                  exclusive
+                  onChange={handleLanguage}
+                  aria-label="text alignment"
+                >
+                  <ToggleButton value="es" aria-label="en">
+                    ES
+                  </ToggleButton>
+                  <ToggleButton value="en" aria-label="en">
+                    EN
+                  </ToggleButton>
+
+                </ToggleButtonGroup>
+              </li> */}
             </ul>
           </nav>
           <div className="relative mx-auto w-50 h-50 overflow-hidden md:h-80 md:w-80">
@@ -62,8 +82,7 @@ export default function Home() {
               Frontend Developer
             </h3>
             <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-400 md:text-xl max-w-lg mx-auto">
-              I'm Jordi Romero, graduated in Computer Engineering, fan of
-              videogames for as long as I can remember and a cat person.
+              {t("firstDescription")}
             </p>
           </div>
           <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600">
@@ -81,114 +100,66 @@ export default function Home() {
         </section>
         <section>
           <div>
-            <h3 className="text-3xl py-1 dark:text-gray-100">About me</h3>
+            <h3 className="text-3xl py-1 dark:text-gray-100">
+              {t("aboutMe")}
+            </h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400">
-              Computing has always been an important part of my life and I think
-              that the path I have chosen has allowed me to go deeper into
-              learning both software and hardware.
+              {t("aboutMe1")}
             </p>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400">
-              My main hobby is video games as they have accompanied me in every
-              stage of my life. Narrative games, multiplayer, RPG, I don't have
-              any preference. But the game that no matter how many times I leave
-              it, I always come back is Destiny 2, which I enjoy a lot with
-              friends.
+              {t("aboutMe2")}
             </p>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400">
-              But I don't spend all day playing. I also like to play sports. For
-              many years I played in the basketball team in my city and this
-              last year I've been hitting the gym to clear my mind and stretch
-              my body.
+              {t("aboutMe3")}
             </p>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400">
-              Lastly, I also love cinema, both commercial films and Saturday
-              afternoon movies.
+              {t("aboutMe4")}
             </p>
           </div>
 
           <div>
             <h3 className="text-3xl py-1 mt-10 dark:text-gray-100">
-              Companies that I've worked
+              {t("companiesWorked")}
             </h3>
           </div>
-          <div className="lg:flex gap-10">
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-slate-800">
-              <h3 className="text-2xl font-medium pb-2 dark:text-gray-100">
-                Universal Doctor
-              </h3>
-              <ul>
-                <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Layout with the MaterialUI library with reference to AdobeXD
-                  and Figma designs.
-                </li>
-                <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Development of the complete flow of applications for the
-                  creation of medical studies and analysis of their data.
-                </li>
-                <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Maintenance of already published applications.
-                </li>
-                <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Implementation of the CI/CD system.
-                </li>
-              </ul>
-            </div>
-
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-slate-800">
-              <h3 className="text-2xl font-medium pb-2 dark:text-gray-100">
-                TiMedi
-              </h3>
-              <ul>
-                <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Development of a web application with hexagonal architecture
-                  for the management and administration of SPDs.
-                </li>
-                <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Component creation and layout with React/MaterialUI.
-                </li>
-                <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Development of the complete flow of the application
-                </li>
-                <li className="text-gray-800 py-1 dark:text-gray-400">
-                  Development of authentication functionalities via third party
-                  applications
-                </li>
-              </ul>
-            </div>
+          <div className="lg:flex gap-10 mt-10">
+            <OppositeContentTimeline></OppositeContentTimeline>
           </div>
         </section>
         <section>
           <div>
             <h3 className="text-3xl py-1 mt-10 dark:text-gray-100">
-              Additional Information
+              {t("AdditionalInfo")}
+
             </h3>
             <ul>
               <li>
                 <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400 ">
-                  I have a lot of experience with the React library and I have
-                  worked with it in several projects.
+                  {t("AdditionalInfo1")}
+
                 </p>
               </li>
               <li>
                 <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400 ">
-                  I have experience with the MongoDB and MySQL database and I
-                  have worked with it in several projects.
+                  {t("AdditionalInfo2")}
+
                 </p>
               </li>
               <li>
                 <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400 ">
-                  Worked with popular JS frameworks such as React, NextJS
+                  {t("AdditionalInfo3")}
                 </p>
               </li>
               <li>
                 <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-400 ">
-                  Proficient in Agile and SCRUM methodologies
+                  {t("AdditionalInfo4")}
                 </p>
               </li>
             </ul>
           </div>
           <h3 className="text-3xl py-1 mt-10 dark:text-gray-100">
-            My projects
+            {t("MyProjects")}
+
           </h3>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
             <div className="basis-1/3 flex-1">
