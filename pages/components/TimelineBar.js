@@ -101,7 +101,6 @@ ColorlibStepIcon.propTypes = {
 export default function CustomizedSteppers() {
     const [showCard, setShowCard] = useState([])
     const [cardVisible, setCardVisible] = useState(false)
-    console.log('works', works)
 
     return (
         <Stack sx={{ width: '100%' }} spacing={4}>

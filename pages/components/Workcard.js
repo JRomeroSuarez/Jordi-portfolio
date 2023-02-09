@@ -4,8 +4,6 @@ import { useTranslation } from "next-i18next";
 
 export default function WorkCard({ work, showCard }) {
     const { t, i18n } = useTranslation("common");
-    console.log('work', work)
-
 
     return (
         <div style={{ display: showCard ? "" : "none" }} className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-slate-800">
